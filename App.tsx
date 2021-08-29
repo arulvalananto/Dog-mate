@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyleSheet } from "react-native";
 
-import LandingScreen from "./src/screens/LandingScreen";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 
@@ -29,14 +29,22 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Landing">
+        <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen
-            name="Landing"
-            component={LandingScreen}
+            name="Welcome"
+            component={WelcomeScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="SignUp" component={SignUpScreen} options={{}} />
-          <Stack.Screen name="SignIn" component={SignInScreen} options={{}} />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUpScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

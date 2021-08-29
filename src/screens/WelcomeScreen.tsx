@@ -1,19 +1,14 @@
 import React from "react";
 
-import { ImageContainer, Imaged, Header } from "./Landing.styles";
+import { ImageContainer, Imaged, Header } from "./Welcome.styles";
 
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
-
-const landing = () => {
+const Welcome = () => {
   const navigation: any = useNavigation();
-
-  const onPress = () => {};
 
   return (
     <View style={styles.container}>
@@ -25,15 +20,12 @@ const landing = () => {
           <Text style={styles.title}>Find a Partner for Your Pet</Text>
         </Header>
         <View style={styles.body}>
-          <Text style={styles.subtitle}>
+          <View style={styles.subtitle}>
             <Text style={styles.subtitleText}>Get Started</Text>
-            <AntDesign
-              name="doubleright"
-              style={styles.icon}
-              size={14}
-              color="white"
-            />
-          </Text>
+            <View style={styles.iconContainer}>
+              <AntDesign name="doubleright" size={14} color="white" />
+            </View>
+          </View>
           <View style={styles.buttonContainer}>
             <Button
               color="#fff"
@@ -56,7 +48,7 @@ const landing = () => {
   );
 };
 
-export default landing;
+export default Welcome;
 
 const styles = StyleSheet.create({
   container: {
@@ -86,15 +78,16 @@ const styles = StyleSheet.create({
   subtitle: {
     marginTop: 20,
     padding: 30,
-    fontSize: 15,
-    color: "#dadada",
     fontFamily: "Poppins_400Regular",
+    flexDirection: "row",
+    alignItems: "center",
   },
   subtitleText: {
-    marginRight: 20,
+    color: "#dadada",
+    fontSize: 15,
   },
-  icon: {
-    paddingLeft: 10,
+  iconContainer: {
+    marginLeft: 10,
   },
   buttonContainer: {
     flexDirection: "row",
